@@ -18,9 +18,6 @@ import java.util.concurrent.TimeUnit;
 public class ProcessingEngine {
     private IndexStore store;
     private ExecutorService executor;
-    private long startTime;
-    private final int TOP_N_FILES = 10;
-
     public ProcessingEngine(IndexStore store, int threadNum) {
         this.store = store;
         this.executor = Executors.newFixedThreadPool(threadNum);

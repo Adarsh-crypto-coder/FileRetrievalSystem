@@ -41,7 +41,7 @@ public class IndexStore {
                 String term = entry.getKey();
                 Map<String, Integer> fileTermCounts = entry.getValue();
                 for (Map.Entry<String, Integer> fileEntry : fileTermCounts.entrySet()) {
-                    String filePath = fileEntry.getKey();
+                    fileEntry.getKey();
                     int count = fileEntry.getValue();
                     index.put(term, index.getOrDefault(term, 0) + count);
                 }
