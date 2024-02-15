@@ -1,20 +1,10 @@
 ## CSC435 Programming Assignment 2 (Winter 2024)
 **Jarvis College of Computing and Digital Media - DePaul University**
 
-**Student**: TO-DO-write-student-name (TO-DO-write-email-address)  
-**Solution programming language**: TO-DO-write-solution-programming-language (Java or C++)
+**Student**: Adarsh Purushothama Reddy (apurusho@depaul.edu)  
+**Solution programming language**: Java
 
 ### Requirements
-
-If you are implementing your solution in C++ you will need to have GCC 12.x and CMake 3.22.x installed on your system. On Ubuntu 22.04 you can install GCC and set it as default compiler using the following commands:
-
-```
-sudo apt install g++-12 gcc-12 cmake
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 110
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-12 120
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 110
-sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-12 120
-```
 
 If you are implementing your solution in Java you will need to have Java 1.7.x and Maven 3.6.x installed on your systems. On Ubuntu 22.04 you can install Java and Maven using the following commands:
 
@@ -38,60 +28,6 @@ remote-computer$ cd <path-to-repo>/datasets
 remote-computer$ unzip Dataset1.zip
 ```
 
-### C++ solution
-#### How to build/compile
-
-To build the C++ solution use the following commands:
-```
-cd app-cpp
-mkdir build
-cmake -S . -B build
-cmake --build build
-```
-
-#### How to run application
-
-To run the C++ solution (after you build the project) use the following command:
-```
-./build/file-retrieval-engine
-> <index | search | quit>
-```
-
-#### Example
-
-```
-./build/file-retrieval-engine
-> index ../datasets/Dataset1
-Completed indexing in 10.386 seconds
-> search Worms
-Search completed in 2.8 seconds
-Search results (top 10):
-* folder6/document200.txt 11
-* folder14/document417.txt 4
-* folder6/document424.txt 4
-* folder11/document79.txt 1
-* folder12/document316.txt 1
-* folder13/document272.txt 1
-* folder13/document38.txt 1
-* folder15/document351.txt 1
-* folder1/document260.txt 1
-* folder4/document101.txt 1
-> search distortion AND adaptation
-Search completed in 3.27 seconds
-Search results (top 10):
-* folder6/document200.txt 57
-* folder7/document476.txt 5
-* folder13/document38.txt 4
-* folder6/document408.txt 3
-* folder7/document298.txt 3
-* folder10/document107.txt 2
-* folder10/document206.txt 2
-* folder10/document27.txt 2
-* folder14/document145.txt 2
-* folder15/document351.txt 2
-> quit
-```
-
 ### Java solution
 #### How to build/compile
 
@@ -100,21 +36,30 @@ To build the Java solution use the following commands:
 cd app-java
 mvn compile
 mvn package
+
+/* Build the solution from the directory mentioned below. You can build from any directory but the build should occur from 'app':
+
+ C:\Users\Adhuuuu\Downloads\csc435-pa2-Adarsh-crypto-coder\app-java\src\main\java\csc435\app> javac *.java
 ```
 
 #### How to run application
 
 To run the Java solution (after you build the project) use the following command:
 ```
-java -cp target/app-java-1.0-SNAPSHOT.jar csc435.app.FileRetrievalEngine
+/* Since the heap space may run out please use this command to run the java application.
+java -Xmx10G csc435.app.FileRetrievalEngine
+
+The run should occur from the below mwntioned directory:
+ C:\Users\Adhuuuu\Downloads\csc435-pa2-Adarsh-crypto-coder\app-java\src\main\java> java -Xmx10G csc435.app.FileRetrievalEngine
 ```
 
 #### Example
 
 ```
-java -cp target/app-java-1.0-SNAPSHOT.jar csc435.app.FileRetrievalEngine
-> index ../datasets/Dataset1
-Completed indexing in 10.386 seconds
+java -Xmx10G csc435.app.FileRetrievalEngine
+> index C:\Users\Adhuuuu\Downloads\Dataset2\Dataset2
+Indexing completed in 55.8201651 seconds.
+
 > search Worms
 Search completed in 2.8 seconds
 Search results (top 10):
@@ -128,6 +73,7 @@ Search results (top 10):
 * folder15/document351.txt 1
 * folder1/document260.txt 1
 * folder4/document101.txt 1
+
 > search distortion AND adaptation
 Search completed in 3.27 seconds
 Search results (top 10):

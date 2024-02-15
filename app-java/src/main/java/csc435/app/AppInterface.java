@@ -8,12 +8,10 @@ public class AppInterface {
 
     public AppInterface(ProcessingEngine engine) {
         this.engine = engine;
-
-        // TO-DO implement constructor
     }
 
     public void readCommands() {
-        // TO-DO implement the read commands method
+        
         Scanner sc = new Scanner(System.in);
         String command;
         
@@ -31,14 +29,24 @@ public class AppInterface {
             
             // if the command begins with index, index the files from the specified directory
             if (command.length() >= 5 && command.substring(0, 5).compareTo("index") == 0) {
-                // TO-DO implement index operation
+                String datasetPath = sc.nextLine().trim();
+                if (!datasetPath.isEmpty()) {
+                    engine.indexFiles(datasetPath);
+                } else {
+                    System.out.println("Please provide the dataset path.");
+                }
                 continue;
             }
 
             // if the command begins with search, search for files that matches the query
             if (command.length() >= 6 && command.substring(0, 6).compareTo("search") == 0) {
-                // TO-DO implement index operation
-                continue;
+                String query = sc.nextLine().trim();
+            if (!query.isEmpty()) {
+                engine.searchFiles(query);
+            } else {
+                System.out.println("Please provide a search query.");
+            }
+            continue;
             }
 
             System.out.println("unrecognized command!");
